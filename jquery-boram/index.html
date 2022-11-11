@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>회원가입</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="./css/main.css" />
+  <style>
+    .toggler { width: 500px; height: 200px; position: relative; }
+    #button { padding: .5em 1em; text-decoration: none; }
+    #effect { width: 240px; height: 170px; padding: 0.4em; position: relative; background: #fff; }
+    #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
+  </style>
+  <script src="./jquery-3.6.1.js"></script>
+  <script src="./jquery-ui.js"></script>
+  <script>
+    $(function () {
+      $("#datepicker").datepicker({
+        prevText: "이전",
+        nextText: "다음",
+        monthNames: [
+          "JAN",
+          "FEB",
+          "MAR",
+          "APR",
+          "MAY",
+          "JUN",
+          "JUL",
+          "AUG",
+          "SEP",
+          "OCT",
+          "NOV",
+          "DEC",
+        ],
+        dayNamesMin: ["S", "M", "T", "W", "R", "F", "S"],
+      });
+    });
+  </script>
+  <script>
+    $( function() {
+      var state = true;
+      $( "#button" ).on( "click", function() {
+        if ( state ) {
+          $( "#effect" ).animate({
+            backgroundColor: "#aa0000",
+            color: "#fff",
+            width: 500
+          }, 1000 );
+        } else {
+          $( "#effect" ).animate({
+            backgroundColor: "#fff",
+            color: "#000",
+            width: 240
+          }, 1000 );
+        }
+        state = !state;
+      });
+    } );
+    </script>
+    <script>
+      $(document).ready(function(){
+        $("h1").css("border", "2px solid rgb(185, 218, 255)");
+        $("input").css("background-color", "yellow");
+        $("button").css("background-color", "#d5d5d5");
+      });
+    </script>
+    <script>
+      $(document).ready(function(){
+        $("#flip").click(function(){
+          $("#panel").slideToggle("slow");
+        });
+      });
+    </script>
+    <style>
+      #panel,#flip {
+        padding: 5px;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+      }
+      #panel {
+        padding: 50px;
+        display: none;
+      }
+    </style>
+    <script>
+      $(document).ready(function(){
+        $("#button2").click(function(){
+          alert("가입이 되었습니다");
+        });
+      });
+    </script>
+
+</head>
+
+<body>
+  <section>
+    <div class="toggler">
+      <div id="effect" class="ui-widget-content ui-corner-all">
+        <h3 class="ui-widget-header ui-corner-all">안내문</h3>
+        <p>
+          개인정보보호법에 따라 아래 제공되는 개인정보는 연구 목적 외에는
+          사용되지 않습니다.
+        </p>
+      </div>
+    </div>
+    <button id="button" class="ui-state-default ui-corner-all">작성 전 안내문 읽기</button>
+    <h1>회원가입</h1>
+    <br />
+    <form action="">
+      <div>
+        <label for="first">이름</label>
+        <input type="text" id="first" name="firstname" placeholder="이름을 입력해주세요" required />
+      </div>
+      <br>
+      <div>  
+        <label for="last">성</label>
+        <input type="text" id="last" name="lastname" required />
+      </div>
+      <br>
+      <div>
+        <label for="datepicker">생년월일</label>
+        <input type="text" id="datepicker" size="53" />
+      </div>
+      <br />
+      <p>레벨선택</p>
+      <div>
+        <input type="radio" id="basic" name="course" value="basic" required />
+        <label for="basic">초급</label>
+      </div>
+      <div>
+        <input type="radio" id="mid" name="course" value="mid" required />
+        <label for="mid">중급</label>
+      </div>
+      <div>
+        <input type="radio" id="expert" name="course" value="expert" required />
+        <label for="expert">상급</label>
+      </div>
+      <br />
+      <div>
+        <label for="email">이메일</label>
+        <input type="email" id="email" name="email" required />
+        <br />
+        <label for="password">패스워드</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <br />
+      <div>
+        <label for="division">관심분야</label>
+        <select name="division" id="division">
+          <option value="it">IT</option>
+          <option value="artandculture">문화예술</option>
+          <option value="education">교육</option>
+          <option value="goverment">정부</option>
+        </select>
+      </div>
+      <br>
+      <div id="flip">개인정보 범위 확인 Click</div>
+      <div id="panel">개인정보 공유 어쩌구</div>
+      <br>
+      <p><button id="button2">가입하기</button></p>
+    </form>
+  </section>
+</body>
+
+</html>
